@@ -147,7 +147,7 @@ sdk/       @opp-oss/position (TypeScript): builders, rents, lifeboat CLI
 
 ## Status
 
-Version 0.1.0, split out of the combined combined prototype whose end-to-end
+Version 0.1.0, split out of the combined prototype whose end-to-end
 suite passed on devnet (open, transfer-of-ownership semantics, burn-to-close
 with exact payout and full rent reclaim, close-on-a-burned-program). This
 standalone build binds to markets via the market account owner instead of a
