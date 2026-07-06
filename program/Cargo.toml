@@ -1,0 +1,33 @@
+# OpenPerps Position: wallet-native bearer-NFT perp positions for ANY
+# OpenPerps market. No risk logic here; the engine prices and margins, the
+# wrapper owns the accounts, this program only decides who holds a position's
+# keys (whoever holds its NFT).
+[package]
+name = "openperps-position"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "openperps_position"
+
+[dependencies]
+pinocchio = "0.8"
+
+[dev-dependencies]
+bytemuck = "1"
+# The OpenPerps wrapper program, used at TEST time only: every locally defined
+# tag, seed, and instruction encoding is pinned byte-for-byte against this
+# exact upstream revision by the unit tests, so layouts cannot drift. It stays
+# out of [dependencies] because its cdylib target cannot build as an SBF
+# dependency (no allocator/panic handler under no-entrypoint); the on-chain
+# artifact is fully self-contained.
+openperps-program = { git = "https://github.com/itsbenjiidunn/openperps-oss.git", rev = "1a44fcbf27c6fe6d9eedd6f9da3bfd98cc794951", default-features = false, features = ["no-entrypoint"] }
+
+[features]
+default = []
+no-entrypoint = []
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("solana"))'] }

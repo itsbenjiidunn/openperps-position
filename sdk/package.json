@@ -1,0 +1,67 @@
+{
+  "name": "@opp-oss/position",
+  "version": "0.1.0",
+  "description": "Wallet-native bearer-NFT perp positions for any OpenPerps market: open straight from the wallet, transfer the NFT to transfer the trade, burn to redeem principal plus PnL.",
+  "license": "Apache-2.0",
+  "author": "itsbenjiidunn",
+  "homepage": "https://github.com/itsbenjiidunn/openperps-position#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsbenjiidunn/openperps-position.git",
+    "directory": "sdk"
+  },
+  "keywords": [
+    "solana",
+    "perpetuals",
+    "launchpad",
+    "nft",
+    "vesting",
+    "openperps"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "tsx --test test/*.test.ts",
+    "e2e": "tsx scripts/devnet-e2e.ts"
+  },
+  "dependencies": {
+    "@opp-oss/sdk": "^1.8.0"
+  },
+  "peerDependencies": {
+    "@solana/web3.js": "^1.95.0",
+    "@streamflow/stream": ">=7"
+  },
+  "peerDependenciesMeta": {
+    "@streamflow/stream": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@solana/spl-token": "^0.4.14",
+    "@solana/web3.js": "^1.95.0",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "bin": {
+    "opp-position": "./dist/cli.js"
+  }
+}
