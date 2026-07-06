@@ -58,7 +58,7 @@ market accounts; this program only decides who holds a position's keys, and
 the answer is: whoever holds its NFT.
 
 Launching markets whose liquidity vests from an external lock platform is the
-sibling repository, [openperps-passbook](https://github.com/itsbenjiidunn/openperps-passbook).
+sibling repository, [simpleperps](https://github.com/itsbenjiidunn/simpleperps).
 The two compose but neither requires the other.
 
 ## Position lifecycle
@@ -147,7 +147,7 @@ sdk/       @opp-oss/position (TypeScript): builders, rents, lifeboat CLI
 
 ## Status
 
-Version 0.1.0, split out of the combined passbook prototype whose end-to-end
+Version 0.1.0, split out of the combined combined prototype whose end-to-end
 suite passed on devnet (open, transfer-of-ownership semantics, burn-to-close
 with exact payout and full rent reclaim, close-on-a-burned-program). This
 standalone build binds to markets via the market account owner instead of a
